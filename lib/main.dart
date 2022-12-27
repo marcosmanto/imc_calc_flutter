@@ -37,7 +37,11 @@ class _HomeState extends State<Home> {
   void _resetFields() {
     weightController.clear();
     heightController.clear();
-    setState(() => _infoText = '');
+    setState(() {
+      _infoText = '';
+      // reset the form by generating a new form key.
+      _formKey = GlobalKey<FormState>();
+    });
   }
 
   void _calculate() {
